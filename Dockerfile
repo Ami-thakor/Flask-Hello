@@ -22,7 +22,8 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY . .
 
 # Collect static files
-
+# Collect static files (templates are used at runtime, no need to compile them)
+RUN python manage.py collectstatic --noinput
 # Expose port
 EXPOSE 5500
 
